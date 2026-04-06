@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
 export class DynamicFormComponent implements OnInit {
 
   form!: FormGroup;
-
+ text = "Angular makes development easier and faster";
+   search = "angular";
   countries = ['India', 'USA'];
 
   statesMap: any = {

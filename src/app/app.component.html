@@ -1,1 +1,6 @@
+<input [(ngModel)]="searchTerm" placeholder="Search text" />
+
+<p [appSearchHighlight]="searchTerm"  highlightClass="blue-highlight">
+  Angular makes development easier and faster
+</p>
 <router-outlet></router-outlet>
