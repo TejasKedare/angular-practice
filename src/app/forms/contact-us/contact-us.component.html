@@ -1,0 +1,22 @@
+<h1>Contact Us</h1>
+
+<h2 class="text-center">Template Driven form</h2>
+<div class="flex justify-center items-center">
+    <form #contactFrom="ngForm" (ngSubmit)="submitForm(contactFrom.value)">
+        <div class="flex flex-col">
+            <label for="first-name">First Name</label>
+            <input [(ngModel)]="firstName" #firstNameCtrl="ngModel" type="text" name="first-name" required placeholder="please enter your first name">
+            <small class="text-red-500" *ngIf="firstNameCtrl.invalid && (firstNameCtrl.dirty || firstNameCtrl.touched)">First Name is Required</small>
+        </div>
+         <div class="flex flex-col">
+            <label for="name">Last Name</label>
+            <input [(ngModel)]="lastName" type="text" name="last name" placeholder="please enter your last name">
+        </div>
+
+        <div class="flex gap-5">
+            <button type="reset" (click)="contactFrom.resetForm()">Clear</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>

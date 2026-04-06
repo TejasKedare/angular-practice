@@ -1,0 +1,23 @@
+<h1>Become a partner</h1>
+
+<p>{{testString | customPipe}}</p>
+<div class="flex flex-col justify-center items-center">
+    <form [formGroup]="partnerForm" (ngSubmit)="submitForm()">
+    <div class="flex flex-col gap-2 mb-5">
+        <label for="firstName">First Name</label>
+        <input formControlName="firstName" type="text" name="firstName" id="firstName" placeholder="Please enter First Name">
+        <small class="text-red-500" *ngIf="partnerForm.get('firstName')?.touched">First Name is Required</small>
+    </div>
+
+     <div class="flex flex-col gap-2">
+        <label for="lastName">Last Name</label>
+        <input formControlName="lastName" type="text" name="lastName" id="lastName" placeholder="Please enter Last Name">
+    </div>
+
+    <div class="flex gap-5 mt-2">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </div>
+    </form>
+
+</div>

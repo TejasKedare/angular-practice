@@ -1,0 +1,13 @@
+<div class="chess-container">
+    @for (row of arr; let r = $index; track $index) {
+      <div class="row">
+          @for (col of arr; let c = $index; track $index) {
+            @if (( r + c) % 2 == 0) {
+                <div class="cell black"></div>
+            } @else {
+                 <div class="cell white"> </div>
+            }
+        }
+      </div>
+    }
+</div>

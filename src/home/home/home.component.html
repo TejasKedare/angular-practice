@@ -1,0 +1,9 @@
+<!-- <p>home works!</p>
+
+<button class="cursor-pointer" (click)="increment()">{{count()}}</button>
+<p>{{total()}}</p> -->
+
+<div class="flex gap-2">
+    <button *ngFor="let item of buttonsArr" #buttons id={{item}} (click)="changeColor(item)" class="cursor-pointer" style="width: 14px;" type="button"> {{item}} </button>
+
+</div>

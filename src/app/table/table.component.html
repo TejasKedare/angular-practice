@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            @for (head of headers; track $index) {
+            <td>{{head}}</td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (row of data; let even = $even; track $index) {
+        <tr [ngClass]="{'even': even}">
+            @for (head of headers; track $index) {
+            <td>{{row[head]}}</td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+

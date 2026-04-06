@@ -1,0 +1,19 @@
+table {
+    width: 100vw;
+    text-align: center;
+}
+
+thead {
+    background: blue;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+td {
+    padding: 10px;
+}
+
+.even {
+    background: whitesmoke;
+}

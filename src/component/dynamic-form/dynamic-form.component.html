@@ -1,0 +1,69 @@
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <h2>Dynamic Reactive Form</h2>
+
+    <!-- Name -->
+    <input placeholder="Name" formControlName="name" />
+    <div class="error" *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+      Name is required
+    </div>
+
+    <!-- Age -->
+    <input type="number" placeholder="Age" formControlName="age" />
+
+    <!-- Country -->
+    <select formControlName="country">
+      <option value="">Select Country</option>
+      <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+    </select>
+
+    <!-- State -->
+    <select formControlName="state">
+      <option value="">Select State</option>
+      <option *ngFor="let s of states" [value]="s">{{ s }}</option>
+    </select>
+
+    <!-- District -->
+    <select formControlName="district">
+      <option value="">Select District</option>
+      <option *ngFor="let d of districts" [value]="d">{{ d }}</option>
+    </select>
+
+    <!-- User Type -->
+    <select formControlName="userType">
+      <option value="">Select Type</option>
+      <option value="student">Student</option>
+      <option value="employee">Employee</option>
+    </select>
+
+    <!-- Extra Field -->
+    <input placeholder="Extra Field" formControlName="extraField" />
+
+    <!-- Dynamic ID Field -->
+    <div *ngIf="form.get('id')">
+      <input placeholder="Enter ID" formControlName="id" />
+      <div class="error" *ngIf="form.get('id')?.touched && form.get('id')?.invalid">
+        ID is required (min 5 characters)
+      </div>
+    </div>
+
+    <!-- Phones -->
+    <div formArrayName="phones" class="phones">
+      <div *ngFor="let phone of phones.controls; let i = index" class="phone-row">
+        <input [formControlName]="i" placeholder="Phone Number" />
+        <button type="button" (click)="removePhone(i)">Remove</button>
+      </div>
+    </div>
+
+    <button 
+      type="button" 
+      (click)="addPhone()" 
+      [disabled]="form.get('age')?.value <= 18">
+      Add Phone
+    </button>
+
+    <button type="submit" class="submit-btn">Submit</button>
+
+  </form>
+</div>
